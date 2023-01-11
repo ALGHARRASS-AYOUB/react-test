@@ -1,9 +1,9 @@
 import React from 'react'
 
-function Hero() {
+function Hero({title}) {
   return (
     <header className='bg-dark text-white p-5'>
-        <h1>        header .....</h1>   
+        <h1> {title}</h1>   
     </header>
   )
 }

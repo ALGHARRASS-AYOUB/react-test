@@ -1,9 +1,15 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link , Navigate, useNavigate } from "react-router-dom";
 
 
 // const NavBar=()=>{}
-function NavBar(){
+function NavBar({searchText,setSearchText}){
+
+  let history=useNavigate();
+      function updateSearchValue(e){
+       history('/Search')
+        setSearchText(e.target.value );
+      }
     return <>
           <nav className="navbar navbar-expand-lg navbar-light bg-light">
      <Link className="navbar-brand" to="/">EgyBest</Link>
@@ -35,7 +41,7 @@ function NavBar(){
          </li>
        </ul>
        <form className="form-inline my-2 my-lg-0">
-         <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
+         <input name="searchinput" className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"  onChange={updateSearchValue}/>
          <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
        </form>
      </div>
