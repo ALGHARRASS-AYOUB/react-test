@@ -44,7 +44,6 @@ const SearchView = ({keyword,searchResult}) => {
   console.log("seach results :",searchResult)
   if(keyword){
     
-    const ResultHTML="";
     if(searchResult){
       return (
         <>
