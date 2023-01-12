@@ -8,6 +8,7 @@ import { Routes , Route} from 'react-router-dom';
 import SearchBar from './components/SearchView';
 import { useEffect, useState } from 'react';
 import SearchView from './components/SearchView';
+import MovieDetails from './components/MovieDetails';
 
 
 
@@ -41,6 +42,9 @@ function App() {
           <Route path="/About" element={<About/>}  />
           <Route path="/Contact" element={<Contact/>} />
           <Route path="/Search" element={<SearchView keyword={searchText} searchResult={searchResult} />} />
+
+        <Route path="/MovieDetails/:id" element={<MovieDetails/>} />
+
         </Routes>
      
     </>

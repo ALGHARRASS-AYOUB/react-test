@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import Hero from './Hero'
 
 
@@ -10,6 +11,7 @@ import Hero from './Hero'
 
 const MovieCard=({movie})=> {
   let BASE_IMG_URL="https://image.tmdb.org/t/p/w500"+movie.poster_path;
+  let BASE_DETAILS_URL="/MovieDetails/"+movie.id
   return(
     <div className="col-lg-3 col-md-3 col-2 my-2">
           <div className="card">
@@ -22,6 +24,10 @@ const MovieCard=({movie})=> {
  
       <small className="text-muted">released at {movie.release_date}</small>
       <span className="text-muted">vote average {movie.vote_average}</span>
+      <div className="m-2">
+
+        <Link className='btn btn-primary' to={BASE_DETAILS_URL}>show details</Link>
+      </div>
     </div>
   </div>
     </div>
@@ -47,7 +53,7 @@ const SearchView = ({keyword,searchResult}) => {
         <div className="row">
         { 
         searchResult.map((item,index)=>{
-       return <MovieCard movie={item} />
+       return <MovieCard movie={item} key={item.id} />
       })}
         </div>
       </div>
